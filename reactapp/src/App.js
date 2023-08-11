@@ -143,7 +143,7 @@ const resetQuiz=()=>
                         </div>)}
                         {showResult? (
                         <div className='answer-section'>
-                          <Button onClick={() => handleResultsButton()} text = "Show Results"></Button>
+                          <Button onClick={() => handleResultsButton()} text="Show Results"></Button>
              
                         </div>) : <></> 
                         }
