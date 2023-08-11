@@ -87,15 +87,14 @@ const handleAnswerResponse=(isCorrect)=>
     setShowResult(true);
    }
 }
-//const text = () => {
-//    const nextQuestion= currentQuestion+1;
-//    if(nextQuestion < Questionbank.length){
-//      return "Show Results"
-//    } else {                        
-//     return "Start Quiz"
-//    }
-      
-//}
+const text = () => {
+   const nextQuestion= currentQuestion+1;
+   if(nextQuestion <= Questionbank.length){
+     return "Show Results"
+   } else {                        
+    return "Start Quiz"
+   }
+}
 
 const resetQuiz=()=>
 {
@@ -137,15 +136,15 @@ const resetQuiz=()=>
                           (
                               <button onClick={()=>handleAnswerResponse(answer.isCorrect)}>{answer.Answer}</button>
                           ))}
-                         
-                        </div>
-                        
-                        {showResult? (
+                         {showResult? (
                         <div className='result-section'>
-                          <Button onClick={() => handleResultsButton()} >Show Results</Button>
+                          <Button onClick={() => handleResultsButton()}> {text()}</Button>
              
                         </div>) : <></> 
                         }
+                        </div>
+                        
+                        
                          </div>)}
                     </>
                 )
