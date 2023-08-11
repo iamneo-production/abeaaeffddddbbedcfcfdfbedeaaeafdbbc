@@ -10,17 +10,12 @@ const Card = (props) => {
 
   return (
     <div>
-      <div><h4>{props.question}</h4></div>
-      <div>
-        {props.options.map((option) => {
-          return (
-            <div key={props.key} onClick={() => getSelectedValue(option)}>
-              <Button>{option}</Button>
+      <div key={props.key}><h4>{props.question}</h4></div>
+        <div onClick={() => getSelectedValue(props.options.option1)}>
+              <Button>{props.options.option1}</Button>
             </div>
-          );
-        })}
+          
       </div>
-    </div>
   );
 };
 
