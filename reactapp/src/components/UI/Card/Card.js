@@ -1,22 +1,20 @@
 import { useState } from "react";
-import Button from "../Button/Button";
-import styles from "./Card.module.css";
 
 const Card = (props) => {
   
   const getSelectedValue = (option) => {
-    if (props.value.correctAnswer === option) {
-      props.setCountCorrectAnswers(props.countCorrectAnswers + 1);
+    if (props.answer === option) {
+      return <></>
     }
   };
 
   return (
     <div>
-      <div><h4>{props.value.Question}</h4></div>
-      <div className={styles.options}>
-        {props.value.options.map((option, index) => {
+      <div><h4>{props.question}</h4></div>
+      <div>
+        {props.options.map((option) => {
           return (
-            <div key={index} onClick={() => getSelectedValue(option)}>
+            <div key={props.key} onClick={() => getSelectedValue(option)}>
               <Button>{option}</Button>
             </div>
           );
