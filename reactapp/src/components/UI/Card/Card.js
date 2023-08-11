@@ -1,32 +1,29 @@
-import React from "react";
+import { useState } from "react";
+import Button from "../Button/Button";
+import styles from "./Card.module.css";
 
+const Card = (props) => {
+  
+  const getSelectedValue = (option) => {
+    if (props.value.correctAnswer === option) {
+      props.setCountCorrectAnswers(props.countCorrectAnswers + 1);
+    }
+  };
 
-const CardData = () => 
-{
-    const cardTest =  
-        {
-            Question: "What Color is are the leaves",
-            Answers: [
-                { Answer: "Blue", isCorrect: false },
-                { Answer: "Red", isCorrect: false },
-                { Answer: "Yellow", isCorrect: false },
-                { Answer: "Green", isCorrect: true }
-            ]
-        };
-    return <>
-    {cardTest}
-    </>;
+  return (
+    <div>
+      <div><h4>{props.value.Question}</h4></div>
+      <div className={styles.options}>
+        {props.value.options.map((option, index) => {
+          return (
+            <div key={index} onClick={() => getSelectedValue(option)}>
+              <Button>{option}</Button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
-
-class Card extends React.Component{
-    render(){
-        return <>
-        <h4>What color is are the leaves ?</h4>
-        <button>Blue</button>
-        <button>Red</button>
-        <button>Yellow</button>
-        <button>Green</button>
-        </>;
-    }
-}
+export default Card;
