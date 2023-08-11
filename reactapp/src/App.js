@@ -113,14 +113,14 @@ const resetQuiz=()=>
                     <Banner/>
                     You have answered {score} / {Questionbank.length} Correctly
                     <>
-                       <Button type="submit" onClick={resetQuiz} text = "Start Quiz"></Button>
+                       <Button type="submit" onClick={resetQuiz} text = "Start Quiz">Start Quiz</Button>
                     </>
                 </div>
             )
                 : (
                     <>
                     <h1>Quizz App</h1>
-                      {!showQuiz && !showResult && <Button  onClick={() => handleQuizButton()} text = "Start Quiz"></Button>}
+                      {!showQuiz && !showResult && <Button  onClick={() => handleQuizButton()} text = "Start Quiz">Start Quiz</Button>}
                       {showQuiz && (
                         <div>
                         <div className='question-section'>
@@ -142,8 +142,8 @@ const resetQuiz=()=>
                         </div>
                         </div>)}
                         {showResult? (
-                        <div className='answer-section'>
-                          <Button onClick={() => handleResultsButton()} text="Show Results"></Button>
+                        <div className='result-section'>
+                          <Button onClick={() => handleResultsButton()} text = "Show Results">Show Results</Button>
              
                         </div>) : <></> 
                         }
