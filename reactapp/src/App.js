@@ -85,16 +85,18 @@ const handleAnswerResponse=(isCorrect)=>
    }
    else{
     setShowResult(true);
+    setShowQuiz(false);
    }
 }
-const text = () => {
-   const nextQuestion= currentQuestion+1;
-   if(nextQuestion <= Questionbank.length){
-     return "Show Results"
-   } else {                        
-    return "Start Quiz"
-   }
-}
+//const text = () => {
+//    const nextQuestion= currentQuestion+1;
+//    if(nextQuestion < Questionbank.length){
+//      return "Show Results"
+//    } else {                        
+//     return "Start Quiz"
+//    }
+      
+//}
 
 const resetQuiz=()=>
 {
@@ -118,7 +120,7 @@ const resetQuiz=()=>
                 : (
                     <>
                     <h1>Quizz App</h1>
-                      {!showQuiz && <Button  onClick={() => handleQuizButton()} text = "Start Quiz"></Button>}
+                      {!showQuiz && !showResult && <Button  onClick={() => handleQuizButton()} text = "Start Quiz"></Button>}
                       {showQuiz && (
                         <div>
                         <div className='question-section'>
@@ -136,16 +138,16 @@ const resetQuiz=()=>
                           (
                               <button onClick={()=>handleAnswerResponse(answer.isCorrect)}>{answer.Answer}</button>
                           ))}
-                         {showResult? (
-                        <div className='result-section'>
-                          <Button onClick={() => handleResultsButton()}> {text()}</Button>
+                         
+                        </div>
+                        </div>)}
+                        {showResult? (
+                        <div className='answer-section'>
+                          <Button onClick={() => handleResultsButton()} text = "Show Results"></Button>
              
                         </div>) : <></> 
                         }
-                        </div>
-                        
-                        
-                         </div>)}
+                         
                     </>
                 )
             }
