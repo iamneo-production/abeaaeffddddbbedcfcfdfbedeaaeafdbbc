@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 
-//interface ButtonProps {
+// interface ButtonProps {
 //    onClick: () => void;
 //    text : String;
-//}
+// }
 
 const ButtonFunc = (text) => {
     if(text === ""){
